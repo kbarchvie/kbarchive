@@ -51,6 +51,11 @@ nav ul{
 nav a{
     color:#fff;
     text-decoration:none;
+    transition:color 0.3s;
+}
+
+nav a:hover{
+    color:#25D366;
 }
 
 .hero{
@@ -60,17 +65,20 @@ nav a{
     align-items:center;
     text-align:center;
     padding:20px;
+    margin-top:60px;
 }
 
 .hero-content h1{
     font-size:4rem;
     margin-bottom:15px;
+    animation:fadeInDown 1s ease;
 }
 
 .hero-content p{
     font-size:1.2rem;
     color:#ccc;
     margin-bottom:25px;
+    animation:fadeInUp 1s ease 0.2s both;
 }
 
 .btn{
@@ -80,6 +88,37 @@ nav a{
     text-decoration:none;
     font-weight:bold;
     border-radius:5px;
+    display:inline-block;
+    transition:all 0.3s;
+    animation:fadeInUp 1s ease 0.4s both;
+}
+
+.btn:hover{
+    background:#25D366;
+    color:#fff;
+    transform:scale(1.05);
+}
+
+@keyframes fadeInDown{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeInUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .section{
@@ -92,6 +131,7 @@ nav a{
     text-align:center;
     font-size:2.5rem;
     margin-bottom:50px;
+    color:#fff;
 }
 
 .products{
@@ -106,16 +146,34 @@ nav a{
     border-radius:10px;
     overflow:hidden;
     transition:0.3s;
+    animation:slideIn 0.6s ease;
+}
+
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .card:hover{
     transform:translateY(-5px);
+    border-color:#25D366;
+    box-shadow:0 10px 30px rgba(37,211,102,0.2);
 }
 
-.card img{
+.card-image{
     width:100%;
     height:400px;
-    object-fit:cover;
+    background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3rem;
 }
 
 .card-content{
@@ -124,11 +182,14 @@ nav a{
 
 .card h3{
     margin-bottom:10px;
+    color:#25D366;
 }
 
 .price{
     font-size:24px;
     margin:15px 0;
+    color:#fff;
+    font-weight:bold;
 }
 
 .sizes{
@@ -145,6 +206,13 @@ nav a{
     text-decoration:none;
     border-radius:5px;
     font-weight:bold;
+    transition:all 0.3s;
+}
+
+.order-btn:hover{
+    background:#20ba58;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(37,211,102,0.3);
 }
 
 .about{
@@ -155,12 +223,18 @@ nav a{
     color:#ccc;
 }
 
+.about p{
+    margin-bottom:20px;
+    font-size:1.1rem;
+}
+
 .contact{
     text-align:center;
 }
 
 .contact p{
     margin:10px 0;
+    font-size:1.1rem;
 }
 
 footer{
@@ -178,6 +252,12 @@ footer{
     color:white;
     text-decoration:none;
     border-radius:5px;
+    transition:all 0.3s;
+}
+
+.instagram-btn:hover{
+    background:#c2185b;
+    transform:scale(1.05);
 }
 
 @media(max-width:768px){
@@ -193,7 +273,18 @@ nav{
 
 nav ul{
     gap:15px;
+    flex-direction:column;
+    text-align:center;
 }
+
+.section{
+    padding:50px 20px;
+}
+
+.section-title{
+    font-size:2rem;
+}
+
 }
 </style>
 </head>
@@ -227,7 +318,7 @@ nav ul{
 <div class="products">
 
 <div class="card">
-<img src="black-incognito.jpg" alt="KB x Incognito Black">
+<div class="card-image">👕</div>
 <div class="card-content">
 <h3>KB × Incognito (Black)</h3>
 <p class="price">K500</p>
@@ -242,7 +333,7 @@ Order on WhatsApp
 </div>
 
 <div class="card">
-<img src="white-incognito.jpg" alt="KB x Incognito White">
+<div class="card-image">👕</div>
 <div class="card-content">
 <h3>KB × Incognito (White)</h3>
 <p class="price">K500</p>
@@ -257,7 +348,7 @@ Order on WhatsApp
 </div>
 
 <div class="card">
-<img src="lost-youth.jpg" alt="KB x Lost Youth">
+<div class="card-image">👕</div>
 <div class="card-content">
 <h3>KB × Lost Youth</h3>
 <p class="price">K500</p>
@@ -284,11 +375,9 @@ culture, quality, and purpose. Every piece is designed to
 stand out while staying true to its message.
 </p>
 
-<br>
-
 <p>
-Faith Over Everything.
-Built on Faith. Made to Last.
+<strong>Faith Over Everything.</strong><br>
+<strong>Built on Faith. Made to Last.</strong>
 </p>
 </div>
 </section>
@@ -297,9 +386,9 @@ Built on Faith. Made to Last.
 <h2 class="section-title">Contact Us</h2>
 
 <div class="contact">
-<p>WhatsApp: +260 765 600 528</p>
+<p><strong>WhatsApp:</strong> <a href="https://wa.me/260765600528" style="color:#25D366;text-decoration:none;">+260 765 600 528</a></p>
 
-<p>Instagram: @kbarchive2</p>
+<p><strong>Instagram:</strong> <a href="https://www.instagram.com/kbarchive2" style="color:#E1306C;text-decoration:none;">@kbarchive2</a></p>
 
 <a
 class="instagram-btn"
@@ -313,7 +402,34 @@ Visit Instagram
 
 <footer>
 <p>© 2026 KB Archive. All Rights Reserved.</p>
+<p style="margin-top:10px;font-size:0.9rem;">Built with ❤️ | Faith Over Everything</p>
 </footer>
+
+<script>
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Add scroll effect to navbar
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(0,0,0,0.95)';
+    } else {
+        header.style.background = '#000';
+    }
+});
+</script>
 
 </body>
 </html>
